@@ -14,6 +14,7 @@ import {
 
 import {
   GiftedChat,
+  Composer,
 } from 'react-native-gifted-chat';
 
 const instructions = Platform.select({
@@ -26,15 +27,17 @@ const instructions = Platform.select({
 export default class App extends Component<{}> {
   state = {
     messages: [],
+    text: '',
   };  
+
+  onTextChanged = (text) => { this.setState({text}) } 
 
   render() {
     return (
-        <GiftedChat 
-          messages={this.state.messages}
-          onSend={(messages) => 0}
-          user = {{ _id: 1 }}
+    	<Composer 
+          text={this.state.text} 
+          onTextChanged={this.onTextChanged}
         />
-    );
+	);
   }
 }
