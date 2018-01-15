@@ -37,6 +37,7 @@ export default class App extends Component<{}> {
     	<Composer 
           text={this.state.text} 
           onTextChanged={this.onTextChanged}
+          textInputProps={{bufferDelay: 1000}}
         />
 	);
   }
